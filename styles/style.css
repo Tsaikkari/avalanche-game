@@ -64,6 +64,21 @@ header {
   position: relative;
 }
 
+/*Clouds*/
+.top-cloud {
+  opacity: 0.1;
+  position: absolute;
+  top: 2rem;
+  right: 8rem;
+}
+
+.bottom-cloud {
+  opacity: 0.3;
+  position: absolute;
+  left: 9rem;
+  top: 7rem;
+}
+
 .description {
   color: #22cfff;
 }
