@@ -64,19 +64,28 @@ header {
   position: relative;
 }
 
-/*Clouds*/
-.top-cloud {
-  opacity: 0.1;
-  position: absolute;
-  top: 2rem;
-  right: 8rem;
-}
-
-.bottom-cloud {
+/*Cloud*/
+.cloud {
   opacity: 0.3;
   position: absolute;
-  left: 9rem;
-  top: 7rem;
+  top: 3rem;
+  z-index: 1;
+  right: calc(100% - 290px);
+  -webkit-animation: cloudLoop 80s linear infinite;
+  animation: cloudLoop 80s linear infinite;
+}
+
+@keyframes cloudLoop {
+  0% {
+    right: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .description {
