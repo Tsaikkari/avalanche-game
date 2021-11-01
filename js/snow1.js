@@ -7,6 +7,7 @@ class Snow1 {
   }
 
   draw() {
-    // TODO: draw snow1 
+    
   }
+ 
 }

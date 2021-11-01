@@ -1,14 +1,17 @@
 class Cottage4 {
   constructor() {
-    this.x = 50
-    this.y = 400
+    this.x = 10
+    this.y = 300
     this.width = 200
-    this.height = 200
+    this.height = 150
     this.image
   }
 
-  draw(){
-    image(this.image, this.x, this.y, this.width, this.height)
+  draw() {
+    if ('todo') {
+      image(game.cottageImages[2].src, this.x, this.y, width, height)
+      // insert text: Game over
+    }
   }
 
   rotateRight() {

@@ -1,18 +1,26 @@
 class Game {
   constructor() {
     this.background = new Background()
-    this.cottage2 = new Cottage()
-    this.cottage3 = new Cottage()
-    this.cottage4 = new Cottage()
+    this.backgroundImages
+    this.cottage2 = new Cottage2()
+    this.cottage3 = new Cottage3()
+    this.cottage4 = new Cottage4()
+    this.cottageImages
     this.snow1 = new Snow1()
     this.snow2 = new Snow2()
     this.player = new Player()
   }
 
   preload() {
-    this.background.image = loadImage('images/mountains-cottage.png')
-    // TODO: add image
-    this.player.image = loadImage('images/player.png')
+    this.backgroundImages = [
+      { src: loadImage('images/mountains-cottage.png') },
+      //{ src: loadImage('images/player.png') }
+    ]
+    this.cottageImages = [
+      { src: loadImage('images/cottage-phase2.png') },
+      { src: loadImage('images/cottage-phase3.png') },
+      { src: loadImage('images/cottage-phase4.png') }
+    ]
   }
 
   draw() {
@@ -22,9 +30,7 @@ class Game {
     this.cottage4.draw()
     this.snow1.draw()
     this.snow2.draw()
-    this.player.draw()
+    //this.player.draw()
   }
 }
-
-const game = new Game()
 
