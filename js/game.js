@@ -16,11 +16,13 @@ class Game {
   }
 
   draw() {
+    this.background.draw()
     this.cottage2.draw()
     this.cottage3.draw()
     this.cottage4.draw()
     this.snow1.draw()
     this.snow2.draw()
+    this.player.draw()
   }
 }
 
