@@ -20,12 +20,7 @@ header {
   text-align: center;
 }
 
-.start-game,
-.intro {
-  display: block;
-  justify-content: center;
-}
-
+/*Button*/
 .start-btn {
   border: 0;
   background: linear-gradient(to bottom, #d4eefc 5%, #22cfff 100%);
@@ -52,6 +47,7 @@ header {
   padding: 0 2em;
 }
 
+/*Play game area*/
 .game-col.mountains {
   width: 70%;
 }
@@ -88,6 +84,94 @@ header {
   }
 }
 
+/*Avalanches*/
+.avalanche1,
+.avalanche2 img {
+  width: 50px;
+  border-radius: 40%;
+}
+.avalanche1 {
+  position: absolute;
+  left: 91%;
+  top: calc(100% - 430px);
+  -webkit-animation: avalanche1Loop 2s infinite;
+  animation: avalanche1Loop 2s infinite;
+}
+
+@keyframes avalanche1Loop {
+  0% {
+    transform: translatex(0px) translatey(0px);
+    opacity: 0;
+  }
+  40% {
+    transform: translatex(-20px) translatey(20px);
+    opacity: 0;
+  }
+  50% {
+    transform: translatex(-20px) translatey(20px);
+    opacity: 0.9;
+  }
+  60% {
+    transform: translatex(-20px) translatey(20px);
+    opacity: 0.4;
+  }
+  70% {
+    transform: translatex(-20px) translatey(20px);
+    opacity: 0.3;
+  }
+  80% {
+    transform: translatex(-20px) translatey(20px);
+    opacity: 0.2;
+  }
+  90% {
+    transform: translatex(-20px) translatey(20px);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translatex(0px) translatey(0px);
+    opacity: 0;
+  }
+}
+
+.avalanche2 {
+  position: absolute;
+  left: 62%;
+  top: calc(100% - 330px);
+  -webkit-animation: avalanche2Loop 2s infinite;
+  animation: avalanche2Loop 2s infinite;
+}
+
+@keyframes avalanche2Loop {
+  0% {
+    transform: translatex(0px) translatey(0px);
+  }
+  50% {
+    transform: translatex(-20px) translatey(20px);
+    opacity: 0.5;
+  }
+  60% {
+    transform: translatex(-20px) translatey(20px);
+    opacity: 0.4;
+  }
+  70% {
+    transform: translatex(-20px) translatey(20px);
+    opacity: 0.3;
+  }
+  80% {
+    transform: translatex(-20px) translatey(20px);
+    opacity: 0.2;
+  }
+  90% {
+    transform: translatex(-20px) translatey(20px);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translatex(0px) translatey(0px);
+    opacity: 0;
+  }
+}
+
+/*Game instructions*/
 .description {
   color: #22cfff;
 }
