@@ -11,8 +11,8 @@ class Game {
   preload() {
     this.backgroundImages = [
       { src: loadImage('images/mountains-cottage.png') },
-      //{ src: loadImage('images/player.png') }
-    ]
+    ],
+    this.playerImage = loadImage('images/pinkpanther.png'),
     this.cottageImages = [
       { src: loadImage('images/cottage-phase2.png') },
       { src: loadImage('images/cottage-phase3.png') },
@@ -21,10 +21,11 @@ class Game {
   }
 
   draw() {
+    clear()
     this.background.draw()
     this.cottage.draw()
     this.snow.draw()
-    //this.player.draw()
+    this.player.draw()
   }
 }
 

@@ -8,7 +8,7 @@ class Player {
   }
 
   draw() {
-    image(this.image, mouseX, mouseY, this.width, this.height)
+    image(game.playerImage, mouseX, mouseY, this.width, this.height)
   }
 
 }
