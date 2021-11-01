@@ -23,11 +23,12 @@ function drag() {
 }
 
 function score() {
+  let score
   // TODO: // if the snow is dropped to the gorge -> score++
-  // counting time down. If time is 0, player won.
 }
 
 function hitCottage() {
+  let counter = 0
   // TODO: if snow1 or snow2 distance to the cottage is 0 and it's the first hit -> cottage2.image
   // else if cottage2 -> cottage3
   // else cottage4, shake and game over
@@ -35,6 +36,10 @@ function hitCottage() {
 }
 
 function shake() {
-  game.cottage4.rotateRight()
-  game.cottage4.rotateLeft()
+  game.cottage.rotateRight()
+  game.cottage.rotateLeft()
 }
+
+// Photo Credits:
+// <a href="https://www.vecteezy.com/free-vector/snow-mountain">Snow Mountain Vectors by Vecteezy</a>
+// <a href="https://www.vecteezy.com/free-vector/cottage">Cottage Vectors by Vecteezy</a>

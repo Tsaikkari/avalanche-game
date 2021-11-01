@@ -2,12 +2,9 @@ class Game {
   constructor() {
     this.background = new Background()
     this.backgroundImages
-    this.cottage2 = new Cottage2()
-    this.cottage3 = new Cottage3()
-    this.cottage4 = new Cottage4()
+    this.cottage = new Cottage()
     this.cottageImages
-    this.snow1 = new Snow1()
-    this.snow2 = new Snow2()
+    this.snow = new Snow()
     this.player = new Player()
   }
 
@@ -25,11 +22,8 @@ class Game {
 
   draw() {
     this.background.draw()
-    this.cottage2.draw()
-    this.cottage3.draw()
-    this.cottage4.draw()
-    this.snow1.draw()
-    this.snow2.draw()
+    this.cottage.draw()
+    this.snow.draw()
     //this.player.draw()
   }
 }
