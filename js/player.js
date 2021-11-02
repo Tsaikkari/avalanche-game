@@ -9,7 +9,7 @@ class Player {
   }
 
   draw() {
-    this.started && 
+    game.started && 
     image(game.playerImage, mouseX, mouseY, this.width, this.height)
   }
 
