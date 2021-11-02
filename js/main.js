@@ -17,7 +17,7 @@ document.querySelector('.start-btn').addEventListener('click', function () {
   if (!game.started) {
     game.started === true
     console.log(game.started) // TODO: fix this gives false
-    game.freeFall() // Nan
+    game.freeFall() // Fix: Nan
   }
 })
 
