@@ -33,22 +33,23 @@ class Game {
   }
 
   calculateDistanceBySnowBall(snow, cottage, background) {
-    console.log(background)
-    console.log(cottage)
-    let bottom = snow.x - (cottage.x - cottage.width)
-    let right = snow.y - (background.height - cottage.y)
+    let bottom = background.width - (cottage.width - (background.width - snow.x))
+    let right = background.height - (cottage.y - snow.y)
     let distance = Math.floor(Math.sqrt(Math.pow(bottom, 2) + Math.pow(right, 2)))
+    console.log(distance)
     return distance
   }
 
   getRandomSnow() {
-    let arr = [snow1, snow2]
+    let arr = [this.snow1, this.snow2]
     return arr[Math.floor(Math.random() * arr.length)]
   }
 
   freeFall() {
     let counter = 0
-    let snowball = getRandomSnow()
+    let distance = 0
+    let snowball = this.getRandomSnow()
+    console.log(snowball)
 
     snowball === this.snow1 ? (
       distance = this.calculateDistanceBySnowBall(this.snow1, this.cottage, this.background)

@@ -1,18 +1,23 @@
 class Snow {
-  constructor(x, y, radius, cottage, background) {
+  constructor(x, y, radius) {
     this.x = x
     this.y = y
     this.radius = radius
-    this.cottage = cottage
-    this.background = background
-    this.speedX = 1
+    this.speedX = 1.9
     this.speedY = 1
   }
 
   draw() {
-    this.x -= this.speedX
-    this.y += this.speedY
+    if (game.started) {
+      if (this.x >= game.cottage.width / 2.1) {
+        this.x -= this.speedX
+        this.y += this.speedY
+      } else {
+        this.x += 1
+        this.y 
+      }
+    }
     circle(this.x, this.y, this.radius)
-    stroke('#fff')
+    stroke('red')
   }
 }
