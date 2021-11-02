@@ -7,7 +7,7 @@ class Game {
     this.snow1 = new Snow(690, 150, 60)
     this.snow2 = new Snow(440, 200, 80)
     this.player = new Player()
-    this.started = false
+    this.started = false;
   }
 
   preload() {
@@ -20,6 +20,14 @@ class Game {
         { src: loadImage('images/cottage-phase3.png') },
         { src: loadImage('images/cottage-phase4.png') },
       ])
+      // ,
+      // document.querySelector('.start-btn').addEventListener('click', function () {
+      //   if (!this.started) {
+      //     this.started === true
+      //     console.log(this.started) // TODO: fix this gives false
+      //     this.freeFall()
+      //   }
+      // })
   }
 
   draw() {
@@ -58,10 +66,10 @@ class Game {
   }
 }
 
-document.querySelector('.start-btn').addEventListener('click', function () {
-  if (!game.started) {
-    game.started === true
-    console.log(game.started) // TODO: fix this gives false
-    game.freeFall()
-  }
-})
+// document.querySelector('.start-btn').addEventListener('click', function () {
+//   if (!game.started) {
+//     game.started === true
+//     console.log(game.started) // TODO: fix this gives false
+//     game.freeFall()
+//   }
+// })
