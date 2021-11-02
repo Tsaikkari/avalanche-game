@@ -1,7 +1,7 @@
 class Game {
   constructor() {
     this.background = new Background()
-    this.backgroundImages
+    //this.backgroundImages
     this.cottage = new Cottage()
     this.cottageImages
     this.snow1 = new Snow(690, 150, 60)
@@ -11,23 +11,13 @@ class Game {
   }
 
   preload() {
-    ;(this.backgroundImages = [
-      { src: loadImage('images/mountains-cottage.png') },
-    ]),
+    ;(this.backgroundImage = loadImage('images/mountains-cottage.png')),
       (this.playerImage = loadImage('images/pinkpanther.png')),
       (this.cottageImages = [
         { src: loadImage('images/cottage-phase2.png') },
         { src: loadImage('images/cottage-phase3.png') },
         { src: loadImage('images/cottage-phase4.png') },
       ])
-      // ,
-      // document.querySelector('.start-btn').addEventListener('click', function () {
-      //   if (!this.started) {
-      //     this.started === true
-      //     console.log(this.started) // TODO: fix this gives false
-      //     this.freeFall()
-      //   }
-      // })
   }
 
   draw() {
@@ -40,6 +30,7 @@ class Game {
   }
 
   calculateDistanceBySnowBall(snow, cottage, background) {
+    console.log(background)
     let bottom = snow.x - (cottage.x - cottage.width)
     let right = snow.y - (background.height - cottage.y)
     let distance = Math.sqrt(Math.pow(bottom, 2) + Math.pow(right, 2))
@@ -66,10 +57,4 @@ class Game {
   }
 }
 
-// document.querySelector('.start-btn').addEventListener('click', function () {
-//   if (!game.started) {
-//     game.started === true
-//     console.log(game.started) // TODO: fix this gives false
-//     game.freeFall()
-//   }
-// })
+

@@ -1,5 +1,9 @@
 class Background {
+  constructor() {
+    this.height = 725
+    this.width = 504
+  }
   draw() {
-    image(game.backgroundImages[0].src, 0, 0, width, height)
+    image(game.backgroundImage, 0, 0, width, height)
   }
 }
