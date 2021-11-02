@@ -12,9 +12,4 @@ class Player {
     game.started && 
     image(game.playerImage, mouseX, mouseY, this.width, this.height)
   }
-
-  drag() {
-    // TODO: player can click the snow and drag and drop
-  }
-
 }

@@ -16,7 +16,10 @@ function draw() {
 document.querySelector('.start-btn').addEventListener('click', function () {
   if (!game.started) {
     game.started = true
-    game.freeFall() // Fix: Nan
+    setTimeout(function() {
+      document.querySelector('.start-btn').innerText = 'The Avalanche'
+    }, 1)
+    game.freeFall() 
   }
 })
 

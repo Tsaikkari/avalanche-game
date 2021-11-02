@@ -17,7 +17,10 @@ class Game {
         { src: loadImage('images/cottage-phase2.png') },
         { src: loadImage('images/cottage-phase3.png') },
         { src: loadImage('images/cottage-phase4.png') },
-      ])
+      ]),
+      setTimeout(function() {
+        document.querySelector('.start-btn').innerText = 'START'
+      }, 2000)
   }
 
   draw() {
@@ -31,29 +34,51 @@ class Game {
 
   calculateDistanceBySnowBall(snow, cottage, background) {
     console.log(background)
+    console.log(cottage)
     let bottom = snow.x - (cottage.x - cottage.width)
     let right = snow.y - (background.height - cottage.y)
-    let distance = Math.sqrt(Math.pow(bottom, 2) + Math.pow(right, 2))
+    let distance = Math.floor(Math.sqrt(Math.pow(bottom, 2) + Math.pow(right, 2)))
     return distance
   }
 
-  freeFall() {
-    // TODO: loop for snowballs fall, starting randomly from two mountains
-    // Math.floor(Math.random() * 2) + 1
+  getRandomSnow() {
+    let arr = [snow1, snow2]
+    return arr[Math.floor(Math.random() * arr.length)]
+  }
 
+  freeFall() {
+    let counter = 0
+    let snowball = getRandomSnow()
+
+    snowball === this.snow1 ? (
+      distance = this.calculateDistanceBySnowBall(this.snow1, this.cottage, this.background)
+    ) : [
+      distance = this.calculateDistanceBySnowBall(this.snow2, this.cottage, this.background),
+    ]
+
+    
     // if snow1 or snow2 distance to the cottage = 0 and it's the first hit -> cottage2.image
     // else if cottage2 -> cottage3
     // else cottage4, shake and game over
     // if distance < 0, change z by -1 to stop
-    let counter = 0
-    // FIX: This returns NaN
-    console.log(
-      this.calculateDistanceBySnowBall(
-        this.snow1,
-        this.cottage,
-        this.background
-      )
-    )
+    
+  }
+
+  drag() {
+    // TODO: player can click the snow and drag and drop
+  }
+
+  rotateRight() {
+
+  }
+
+  rotateLeft() {
+
+  }
+
+  shake() {
+    this.cottage.rotateRight()
+    this.cottage.rotateLeft()
   }
 }
 
