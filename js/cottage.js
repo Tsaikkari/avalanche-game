@@ -17,4 +17,9 @@ class Cottage {
     // game over
     // }
   }
+
+  shake() {
+    game.cottage.rotateRight()
+    game.cottage.rotateLeft()
+  }
 }
