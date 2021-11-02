@@ -16,15 +16,17 @@ class Snow {
         if (ball.x <= game.cottage.width / 2.8 && ball === game.snow1) {
           ball.x = 690
           ball.y = 150
+          game.hitcount++ 
         } else if (ball.x <= game.cottage.width / 2.8 && ball === game.snow2) {
           ball.x = 440
           ball.y = 200
+          game.hitcount++
         }
       })
+      console.log(game.hitcount)
       circle(this.x, this.y, this.radius)
       fill('#fff')
-      stroke('bebebe')
-      
+      stroke('949494')
     }
   }
 }

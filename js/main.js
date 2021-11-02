@@ -19,7 +19,6 @@ document.querySelector('.start-btn').addEventListener('click', function () {
     setTimeout(function() {
       document.querySelector('.start-btn').innerText = 'The Avalanche'
     }, 1)
-    game.freeFall() 
   }
 })
 
