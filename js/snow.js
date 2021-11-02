@@ -8,16 +8,24 @@ class Snow {
   }
 
   draw() {
+    const snowballs = [game.snow1, game.snow2]
     if (game.started) {
-      if (this.x >= game.cottage.width / 2.1) {
-        this.x -= this.speedX
-        this.y += this.speedY
-      } else {
-        this.x += 1
-        this.y 
-      }
+      snowballs.forEach(function(ball) {
+        ball.x -= ball.speedX
+        ball.y += ball.speedY
+        if (ball.x <= game.cottage.width / 2.8 && ball === game.snow1) {
+          ball.x = 690
+          ball.y = 150
+        } else if (ball.x <= game.cottage.width / 2.8 && ball === game.snow2) {
+          ball.x = 440
+          ball.y = 200
+        }
+      })
+      circle(this.x, this.y, this.radius)
+      fill('#fff')
+      stroke('bebebe')
+      
     }
-    circle(this.x, this.y, this.radius)
-    stroke('red')
   }
 }
+

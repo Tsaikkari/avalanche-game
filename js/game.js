@@ -1,7 +1,6 @@
 class Game {
   constructor() {
     this.background = new Background()
-    //this.backgroundImages
     this.cottage = new Cottage()
     this.cottageImages
     this.snow1 = new Snow(690, 150, 60)
@@ -49,7 +48,7 @@ class Game {
     let counter = 0
     let distance = 0
     let snowball = this.getRandomSnow()
-    console.log(snowball)
+    console.log('snowball', snowball)
 
     snowball === this.snow1 ? (
       distance = this.calculateDistanceBySnowBall(this.snow1, this.cottage, this.background)
