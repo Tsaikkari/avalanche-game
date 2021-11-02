@@ -43,10 +43,9 @@ class Game {
     // Math.floor(Math.random() * 2) + 1
 
     // if snow1 or snow2 distance to the cottage = 0 and it's the first hit -> cottage2.image
-    // if distance < 0, change z by -1 to stop
     // else if cottage2 -> cottage3
     // else cottage4, shake and game over
-    console.log('freeFall')
+    // if distance < 0, change z by -1 to stop
     let counter = 0
     // FIX: This returns NaN
     console.log(
@@ -60,10 +59,9 @@ class Game {
 }
 
 document.querySelector('.start-btn').addEventListener('click', function () {
-  console.log('click')
-  if (!this.started) {
-    this.started === true
-    console.log(this.started) // TODO: fix undefined
+  if (!game.started) {
+    game.started === true
+    console.log(game.started) // TODO: fix this gives false
     game.freeFall()
   }
 })

@@ -3,13 +3,13 @@ class Player {
     this.x = 200
     this.y = 300
     this.width = 100
-    this.height = 100
+    this.height = 173
     this.image;
-    this.started
+    this.started;
   }
 
   draw() {
-    game.started && 
+    game.player.started && 
     image(game.playerImage, mouseX, mouseY, this.width, this.height)
   }
 
