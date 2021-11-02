@@ -1,9 +1,9 @@
 class Cottage {
   constructor() {
     this.x = 10
-    this.y = 300
-    this.width = 170
-    this.height = 83
+    this.y = 400
+    this.width = 157
+    this.height = 74
     this.image
   }
 
@@ -17,13 +17,5 @@ class Cottage {
         image(game.cottageImages[2].src, img.x, img.y, img.width, img.height)
       }
     })
-    // if ('todo') {
-    //   image(game.cottageImages[0].src, this.x, this.y, this.width, this.height)
-    // } else if ('todo') {
-    //   image(game.cottageImages[1].src, this.x, this.y, this.width, this.height)
-    // } else {
-    //   image(game.cottageImages[2].src, this.x, this.y, this.width, this.height)
-    // game over
-    // }
   }
 }

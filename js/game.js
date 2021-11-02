@@ -14,7 +14,7 @@ class Game {
     ;(this.backgroundImage = loadImage('images/mountains-cottage.png')),
       (this.playerImage = loadImage('images/pinkpanther.png')),
       (this.cottageImages = [
-        { src: loadImage('images/cottage-phase2.png') },
+        { src: loadImage('images/cottage-phase2.png'), x: 0, y: 400, width: 157, height: 74 },
         { src: loadImage('images/cottage-phase3.png') },
         { src: loadImage('images/cottage-phase4.png') },
       ]),

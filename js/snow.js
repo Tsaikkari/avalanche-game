@@ -1,13 +1,20 @@
 class Snow {
-  constructor(x, y, radius) {
+  constructor(x, y, diameter) {
     this.x = x
     this.y = y
-    this.radius = radius
+    this.diameter = diameter
+    //this.radius = radius
     this.speedX = 1.9
     this.speedY = 1
+    this.dragging = false;
   }
 
   draw() {
+    if(this.dragging){
+      this.x = mouseX;
+      this.y = mouseY;
+    }
+
     const snowballs = [game.snow1, game.snow2]
     if (game.started) {
       snowballs.forEach(function(ball) {
@@ -23,11 +30,24 @@ class Snow {
           game.hitcount++
         }
       })
-      console.log(game.hitcount)
-      circle(this.x, this.y, this.radius)
+      ellipse(this.x, this.y, this.diameter, this.diameter)
+      //circle(this.x, this.y, this.radius)
       fill('#fff')
       stroke('949494')
     }
+  }
+
+  //when mouse is pressed, 
+  //check if mouse is intersecting w/ circle 
+  mousePressed() {
+    //check if mouse is over the ellipse
+    if(dist(this.x, this.y, mouseX, mouseY) < diameter/2) {
+      this.dragging = true;
+    }
+  }
+
+  mouseReleased() {
+    this.dragging = false;
   }
 }
 
