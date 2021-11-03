@@ -58,7 +58,7 @@ header {
 }
 
 /*Cloud*/
-.cloud {
+/*.cloud {
   opacity: 0.3;
   position: absolute;
   top: 3rem;
@@ -79,10 +79,10 @@ header {
     -webkit-transform: translate3d(-50%, 0, 0);
     transform: translate3d(-50%, 0, 0);
   }
-}
+}*/
 
 /*Avalanches*/
-.avalanche1,
+/*.avalanche1,
 .avalanche2 img {
   width: 50px;
   border-radius: 40%;
@@ -166,7 +166,7 @@ header {
     transform: translatex(0px) translatey(0px);
     opacity: 0;
   }
-}
+}*/
 
 /*Game instructions*/
 .description {
