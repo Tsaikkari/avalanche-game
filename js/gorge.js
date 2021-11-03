@@ -1,10 +1,12 @@
 class Gorge {
   constructor() {
-    // TODO: figure out the coordinates
+    this.x = 682
+    this.y = 332
+    this.width = 154
+    this.height = 160
   }
 
-  score() {
-    let score
-    // TODO: // if the snow is dropped to the gorge -> score++
+  draw() {
+    
   }
 }

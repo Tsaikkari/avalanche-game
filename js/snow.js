@@ -5,24 +5,24 @@ class Snow {
     this.radius = radius
     this.speedX = 1.9
     this.speedY = 1
-    this.dragging = false;
+    this.dragging = false
   }
 
   draw() {
-    if(this.dragging){
-      this.x = mouseX;
-      this.y = mouseY;
+    if (this.dragging) {
+      this.x = mouseX
+      this.y = mouseY
     }
 
     const snowballs = [game.snow1, game.snow2]
     if (game.started) {
-      snowballs.forEach(function(ball) {
+      snowballs.forEach(function (ball) {
         ball.x -= ball.speedX
         ball.y += ball.speedY
         if (ball.x <= game.cottage.width / 2.8 && ball === game.snow1) {
           ball.x = 690
           ball.y = 150
-          game.hitcount++ 
+          game.hitcount++
         } else if (ball.x <= game.cottage.width / 2.8 && ball === game.snow2) {
           ball.x = 440
           ball.y = 200
@@ -31,7 +31,7 @@ class Snow {
           noLoop()
           reset()
           loop()
-        }
+        } 
       })
       circle(this.x, this.y, this.radius)
       fill('#fff')
@@ -40,8 +40,8 @@ class Snow {
   }
 
   clicked() {
-    if(dist(mouseX, mouseY, this.x, this.y) < this.radius) {
-      this.dragging = true;
+    if (dist(mouseX, mouseY, this.x, this.y) < this.radius) {
+      this.dragging = true
     }
   }
 
@@ -52,8 +52,7 @@ class Snow {
   }
 
   released() {
-    this.dragging = false;
+    this.dragging = false
     // TODO: snow falls to the gorge: change the loop
   }
 }
-

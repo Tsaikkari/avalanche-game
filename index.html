@@ -20,22 +20,21 @@
         <p class="description">Catch the snow and save your cottage!</p>
         <ol>
           <li>Move your mouse and click to grab the snow.</li><br>
-          <li>Drag and drop it to a gorge between the highest mountains.</li>
+          <li>Drag and drop it onto the shadow side of the mountain.</li>
         </ol>
       </div>
       <div id="game" class="mountains game-col">
         <!-- <img class="cloud" src="images/cloud.png" alt="cloud">
         <img class="avalanche1" src="images/avalanche2.png" alt="avalanche">
-        <div class="gorge"></div>
         <img class="avalanche2" src="images/avalanche2.png" alt="avalanche"> -->
       </div>
       <div class="score-div game-col">
         <h2 class="score">Score</h2>
         <p>Snow removed: <span class="snow-removed">0</span></p>
         <article class="timer">
-          <h3>Timer (min)</h3>
-            <input type="range" name="minutesInputName" id="minutesInputId" value="1" min="1" max="10" oninput="minutesOutputId.value = minutesInputId.value">
-            <output name="minutesOutputName" id="minutesOutputId">1</output>
+          <h3>Timer</h3>
+            <input type="range" name="secondsInputName" id="secondsInputId" value="10" min="1" max="60" oninput="secondsOutputId.value = secondsInputId.value">
+            <output name="secondsOutputName" id="secondsOutputId">10s.</output>
           <div class="count">
             <div id="timer"></div>
           </div>
@@ -44,6 +43,8 @@
     </div>
     </section>
     <!-- <script src="./js/drag.js"></script> -->
+    <script src="./js/countdown.js"></script>
+    <script src="./js/gorge.js"></script>
     <script src="./js/snow.js"></script>
     <script src="./js/cottage.js"></script>
     <script src="./js/background.js"></script>
