@@ -27,6 +27,9 @@ class Snow {
           ball.x = 440
           ball.y = 200
           game.hitcount++
+        } else if (game.hitcount === 6) {
+          noLoop()
+          document.querySelector('body').classList.add('game-over')
         }
       })
       circle(this.x, this.y, this.radius)

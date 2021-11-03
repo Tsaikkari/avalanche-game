@@ -23,6 +23,10 @@ function mouseReleased() {
   game.snow2.released()
 }
 
+function startOver() {
+  game.started = false
+}
+
 document.querySelector('.start-btn').addEventListener('click', function () {
   if (!game.started) {
     game.started = true

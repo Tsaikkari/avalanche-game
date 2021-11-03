@@ -8,15 +8,19 @@ class Game {
     this.player = new Player()
     this.started = false;
     this.hitcount = 0;
+    this.gameOverHeader;
   }
 
   preload() {
-    ;(this.backgroundImage = loadImage('images/mountains-cottage.png')),
+    ;(this.backgroundImage = loadImage('images/mountains.png')),
       (this.playerImage = loadImage('images/pinkpanther.png')),
       (this.cottageImages = [
+        { src: loadImage('images/cottage.png'), x: 0, y: 400, width: 157, height: 74 },
+        { src: loadImage('images/cottage-phase1.png'), x: 0, y: 400, width: 157, height: 74 },
         { src: loadImage('images/cottage-phase2.png'), x: 0, y: 400, width: 157, height: 74 },
-        { src: loadImage('images/cottage-phase3.png') },
-        { src: loadImage('images/cottage-phase4.png') },
+        { src: loadImage('images/cottage-phase3.png'), x: 0, y: 400, width: 157, height: 74 },
+        { src: loadImage('images/cottage-phase4.png'), x: 0, y: 400, width: 157, height: 74 },
+        { src: loadImage('images/cottage-phase5.png'), x: 0, y: 400, width: 157, height: 74 },
       ]),
       setTimeout(function() {
         document.querySelector('.start-btn').innerText = 'START'

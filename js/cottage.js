@@ -8,16 +8,11 @@ class Cottage {
   }
 
   draw() {
-    game.cottageImages.forEach(function(img) {
-      if (game.hitcount === 1) {
-        // TODO: change the first image
-        image(game.cottageImages[0].src, img.x, img.y, img.width, img.height)
-      } else if (game.hitcount === 2) {
-        image(game.cottageImages[1].src, img.x, img.y, img.width, img.height)
-      } else if (game.hitcount === 3) {
-        image(game.cottageImages[2].src, img.x, img.y, img.width, img.height)
-        // TODO: Stop game, text: Game Over
+    for (let i = 0; i < game.cottageImages.length; i++) {
+      if (game.hitcount === i) {
+        image(game.cottageImages[i].src, this.x, this.y, this.width, this.height)
       }
-    })
+    }
+    return game.cottageImages
   }
 }
