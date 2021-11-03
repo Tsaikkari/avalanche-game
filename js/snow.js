@@ -1,9 +1,8 @@
 class Snow {
-  constructor(x, y, diameter) {
+  constructor(x, y, radius) {
     this.x = x
     this.y = y
-    this.diameter = diameter
-    //this.radius = radius
+    this.radius = radius
     this.speedX = 1.9
     this.speedY = 1
     this.dragging = false;
@@ -30,24 +29,21 @@ class Snow {
           game.hitcount++
         }
       })
-      ellipse(this.x, this.y, this.diameter, this.diameter)
-      //circle(this.x, this.y, this.radius)
+      circle(this.x, this.y, this.radius)
       fill('#fff')
       stroke('949494')
     }
   }
 
-  //when mouse is pressed, 
-  //check if mouse is intersecting w/ circle 
-  mousePressed() {
-    //check if mouse is over the ellipse
-    if(dist(this.x, this.y, mouseX, mouseY) < diameter/2) {
+  clicked() {
+    if(dist(mouseX, mouseY, this.x, this.y) < this.radius) {
       this.dragging = true;
     }
   }
 
-  mouseReleased() {
+  released() {
     this.dragging = false;
+    // TODO: snow falls to the gorge: change the loop
   }
 }
 

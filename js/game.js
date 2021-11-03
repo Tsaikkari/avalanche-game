@@ -32,11 +32,6 @@ class Game {
     this.player.draw()
   }
 
-
-  drag() {
-    // TODO: player can click the snow and drag and drop
-  }
-
   rotateRight() {
 
   }

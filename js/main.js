@@ -13,6 +13,16 @@ function draw() {
   game.draw()
 }
 
+function mousePressed() {
+  game.snow1.clicked()
+  game.snow2.clicked()
+}
+
+function mouseReleased() {
+  game.snow1.released()
+  game.snow2.released()
+}
+
 document.querySelector('.start-btn').addEventListener('click', function () {
   if (!game.started) {
     game.started = true
