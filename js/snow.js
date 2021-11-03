@@ -29,7 +29,9 @@ class Snow {
           game.hitcount++
         } else if (game.hitcount === 6) {
           noLoop()
-          document.querySelector('body').classList.add('game-over')
+          reset()
+          loop()
+          console.log(game.started)
         }
       })
       circle(this.x, this.y, this.radius)
@@ -42,6 +44,10 @@ class Snow {
     if(dist(mouseX, mouseY, this.x, this.y) < this.radius) {
       this.dragging = true;
     }
+  }
+
+  startOverClick() {
+    startOver()
   }
 
   released() {

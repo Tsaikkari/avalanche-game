@@ -16,6 +16,8 @@ function draw() {
 function mousePressed() {
   game.snow1.clicked()
   game.snow2.clicked()
+  game.snow1.startOverClick()
+  game.snow2.startOverClick()
 }
 
 function mouseReleased() {
@@ -23,8 +25,13 @@ function mouseReleased() {
   game.snow2.released()
 }
 
-function startOver() {
+function reset() {
   game.started = false
+}
+
+function startOver() {
+  game.hitcount = 0
+  game.started = true
 }
 
 document.querySelector('.start-btn').addEventListener('click', function () {
@@ -35,6 +42,7 @@ document.querySelector('.start-btn').addEventListener('click', function () {
     }, 1)
   }
 })
+
 
 // Photo Credits:
 // <a href="https://www.vecteezy.com/free-vector/snow-mountain">Snow Mountain Vectors by Vecteezy</a>
