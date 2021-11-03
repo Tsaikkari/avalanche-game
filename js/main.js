@@ -36,7 +36,7 @@ function startOver() {
 
 function countdown() {
   if (game.started) {
-    let sec = 10
+    let sec = document.getElementById("minutesInputId").value * 60
     let countDiv = document.getElementById('timer')
     let countDown = setInterval(function () {
       secpass()
@@ -59,7 +59,7 @@ function countdown() {
       } else {
         clearInterval(countDown)
         if (game.hitcount < 5) {
-          countDiv.innerHTML = 'You Won!'
+          countDiv.innerHTML = 'You Won!!!!'
         } else {
           countDiv.innerHTML = ''
         }
