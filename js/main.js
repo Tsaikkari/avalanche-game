@@ -32,7 +32,9 @@ function reset() {
 
 function startOver() {
   game.hitcount = 0
+  game.player.score = 0
   game.started = true
+  countdown()
 }
 
 document.querySelector('.start-btn').addEventListener('click', function () {

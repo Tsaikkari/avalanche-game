@@ -1,7 +1,6 @@
 class Game {
   constructor() {
     this.background = new Background()
-    this.backgroundImages
     this.cottage = new Cottage()
     this.cottageImages;
     this.snow1 = new Snow(690, 150, 60)
@@ -13,7 +12,7 @@ class Game {
   }
 
   preload() {
-    ;(this.backgroundImages = [loadImage('images/mountains.svg'), loadImage('images/mountains.png')]),
+    ;(this.backgroundImage = loadImage('images/mountains.png')),
       (this.playerImage = loadImage('images/pinkpanther.png')),
       (this.cottageImages = [
         { src: loadImage('images/cottage.png'), x: 0, y: 400, width: 157, height: 74 },
