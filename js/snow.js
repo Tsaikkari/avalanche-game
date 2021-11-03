@@ -23,18 +23,14 @@ class Snow {
           ball.x = 690
           ball.y = 150
           game.hitcount++ 
-          console.log(game.hitcount)
         } else if (ball.x <= game.cottage.width / 2.8 && ball === game.snow2) {
           ball.x = 440
           ball.y = 200
           game.hitcount++
         } else if (game.hitcount === 6) {
           noLoop()
-          console.log('before reset before loop', game.started)
           reset()
-          console.log('after reset before loop', game.started)
           loop()
-          console.log(game.started)
         }
       })
       circle(this.x, this.y, this.radius)
