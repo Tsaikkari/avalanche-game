@@ -3,7 +3,7 @@ class Snow {
     this.x = x
     this.y = y
     this.radius = radius
-    this.speedX = 1.9
+    this.speedX = 2
     this.speedY = 1
     this.dragging = false
   }
@@ -15,6 +15,7 @@ class Snow {
     }
 
     const snowballs = [game.snow1, game.snow2]
+    let result = document.getElementById('timer').innerHTML 
     if (game.started) {
       snowballs.forEach(function (ball) {
         ball.x -= ball.speedX
@@ -27,7 +28,7 @@ class Snow {
           ball.x = 440
           ball.y = 200
           game.hitcount++
-        } else if (game.hitcount === 6) {
+        } else if (game.hitcount === 6 || result === 'You Won!!!!') {
           noLoop()
           reset()
           loop()

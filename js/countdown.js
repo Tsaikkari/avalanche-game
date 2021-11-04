@@ -22,7 +22,7 @@ function countdown() {
         sec = sec - 1
       } else {
         clearInterval(countDown)
-        if (game.hitcount < 5) {
+        if (game.hitcount < 1) {
           countDiv.innerHTML = 'You Won!!!!'
         } else {
           countDiv.innerHTML = 'Try again'
