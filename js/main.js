@@ -35,6 +35,7 @@ function startOver() {
   game.hitcount = 0
   game.player.score = 0
   game.started = true
+  document.getElementById('secondsInputId').classList.remove('hide')
   countdown()
 }
 

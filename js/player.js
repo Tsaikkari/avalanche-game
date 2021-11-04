@@ -16,11 +16,9 @@ class Player {
 
   gorgeAction() {
     const playerX = mouseX + this.width * 2
-    console.log(playerX)
     const playerY = mouseY + this.width * 3
 
     const gorgeX = game.gorge.x + game.gorge.width / 2
-    console.log(gorgeX)
     const gorgeY = game.gorge.y + game.gorge.width / 2
 
     if (dist(gorgeX, gorgeY, playerX, playerY) < 100) {
@@ -29,9 +27,5 @@ class Player {
     } else {
       return 0
     }
-  }
-
-  setTimer() {
-    
   }
 }

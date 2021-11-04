@@ -12,39 +12,72 @@ class Snow {
     if (this.dragging) {
       this.x = mouseX
       this.y = mouseY
-    } 
-    //console.log(game.started)
+    }
+
+    let dragState = this.dragging
     const snowballs = [game.snow1, game.snow2]
-    let result = document.getElementById('timer').innerHTML 
+    let result = document.getElementById('timer').innerHTML
     if (game.started) {
       snowballs.forEach(function (ball) {
-        ball.x -= ball.speedX
-        ball.y += ball.speedY
-        if (ball.x <= game.cottage.width / 2.8 && ball === game.snow1) {
-          ball.x = 690
-          ball.y = 150
-          game.hitcount++
-        } else if (ball.x <= game.cottage.width / 2.8 && ball === game.snow2) {
-          ball.x = 440
-          ball.y = 200
-          game.hitcount++
-        } else if (game.hitcount === 6 || result === 'You Won!!!!') {
-          noLoop()
-          reset()
-          loop()
-        } 
+        if (
+          mouseX >= 550 &&
+          dragState === false &&
+          dist(mouseX, mouseY, ball.x, ball.y) < ball.radius
+        ) {
+          ball.x === mouseX
+          ball.y += 50
+          console.log('drop')
+        } else {
+          ball.x -= ball.speedX
+          ball.y += ball.speedY
+          if (ball.x <= game.cottage.width / 2.8 && ball === game.snow1) {
+            ball.x = 690
+            ball.y = 150
+            game.hitcount++
+          } else if (
+            ball.x <= game.cottage.width / 2.8 &&
+            ball === game.snow2
+          ) {
+            ball.x = 440
+            ball.y = 200
+            game.hitcount++
+          } else if (game.hitcount === 6 || result === 'You Won!!!!') {
+            noLoop()
+            reset()
+            loop()
+          }
+        }
       })
       circle(this.x, this.y, this.radius)
       fill('#fff')
       stroke('949494')
-
-      // if (this.dragging === false) {
-      //   console.log('drop')
-      // } else {
-      //   console.log('drag')
-      // }
-      
     }
+    //console.log(game.started)
+    // const snowballs = [game.snow1, game.snow2]
+    // let result = document.getElementById('timer').innerHTML
+    // if (game.started) {
+    //   snowballs.forEach(function (ball) {
+    //     ball.x -= ball.speedX
+    //     ball.y += ball.speedY
+    //     if (ball.x <= game.cottage.width / 2.8 && ball === game.snow1) {
+    //       ball.x = 690
+    //       ball.y = 150
+    //       game.hitcount++
+    //     } else if (ball.x <= game.cottage.width / 2.8 && ball === game.snow2) {
+    //       ball.x = 440
+    //       ball.y = 200
+    //       game.hitcount++
+    //     } else if (game.hitcount === 6 || result === 'You Won!!!!') {
+    //       noLoop()
+    //       reset()
+    //       loop()
+    //     }
+    //   })
+    //   circle(this.x, this.y, this.radius)
+    //   fill('#fff')
+    //   stroke('949494')
+
+    // }
   }
 
   clicked() {
@@ -64,7 +97,5 @@ class Snow {
     // TODO: snow falls to the gorge: change the loop
   }
 
-  snowDrop() {
-   
-  }
+  snowDrop() {}
 }
