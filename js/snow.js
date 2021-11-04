@@ -3,9 +3,10 @@ class Snow {
     this.x = x
     this.y = y
     this.radius = radius
-    this.speedX = 2
+    this.speedX = 1.9
     this.speedY = 1
     this.dragging = false
+    this.distance
   }
 
   draw() {
@@ -17,40 +18,70 @@ class Snow {
     let dragState = this.dragging
     const snowballs = [game.snow1, game.snow2]
     let result = document.getElementById('timer').innerHTML
+    this.distance = dist(mouseX, mouseY, this.x, this.y)
+    //console.log(snowballs)
+
     if (game.started) {
-      snowballs.forEach(function (ball) {
+      snowballs.forEach((ball) => {
+        // if player drops the ball to the gorge
         if (
           mouseX >= 550 &&
           dragState === false &&
-          dist(mouseX, mouseY, ball.x, ball.y) < ball.radius
+          ball.distance <= ball.radius
         ) {
-          ball.x === mouseX
-          ball.y += 50
-          console.log('drop')
+          let balls = []
+          ball.x === mouseX,
+          ball.y += 100
+          balls.push(ball)
+          console.log('balls1', balls)
+          balls.forEach(ball => {
+            if (ball === game.snow1) {
+              ball.x === 690
+              ball.y === 150
+            } else {
+              ball.x === 440
+              ball.y === 200
+            }
+            snowballs.push(ball)
+            console.log(snowballs, 'snowballs inside loop')
+            console.log('ball inside loop', ball)
+          })
+          console.log(balls, 'thisisisis')
+          snowballs.concat(balls)
+          console.log(snowballs, 'snowballs2')
         } else {
           ball.x -= ball.speedX
           ball.y += ball.speedY
-          if (ball.x <= game.cottage.width / 2.8 && ball === game.snow1) {
+          if (
+            dist(
+              ball.x,
+              ball.y,
+              167,
+              game.cottage.y
+            ) < 50 && ball === game.snow1
+          ) {
             ball.x = 690
             ball.y = 150
-            game.hitcount++
-          } else if (
-            ball.x <= game.cottage.width / 2.8 &&
-            ball === game.snow2
-          ) {
+            ++game.hitcount
+          } else if (dist(
+            ball.x,
+            ball.y,
+            167,
+            game.cottage.y
+          ) < 50 && ball === game.snow2) {
             ball.x = 440
             ball.y = 200
-            game.hitcount++
-          } else if (game.hitcount === 6 || result === 'You Won!!!!') {
+            ++game.hitcount
+          } else if (game.hitcount === 5 || result === 'You Won!!!!') {
             noLoop()
             reset()
             loop()
-          }
+          } 
         }
       })
       circle(this.x, this.y, this.radius)
       fill('#fff')
-      stroke('949494')
+      stroke('#464e51')
     }
   }
 
@@ -68,8 +99,5 @@ class Snow {
 
   released() {
     this.dragging = false
-    // TODO: snow falls to the gorge: change the loop
   }
-
-  snowDrop() {}
 }
