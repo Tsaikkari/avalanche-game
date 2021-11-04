@@ -28,6 +28,7 @@ function mouseReleased() {
 
 function reset() {
   game.started = false
+  document.getElementById('secondsInputId').classList.remove('hide')
 }
 
 function startOver() {
@@ -39,6 +40,12 @@ function startOver() {
 
 document.querySelector('.start-btn').addEventListener('click', function () {
   countdown()
+  if (game.started) {
+    document.getElementById('secondsInputId').classList.add('hide')
+  } else {
+    document.getElementById('secondsInputId').classList.remove('hide')
+  }
+  
   setTimeout(function () {
     document.querySelector('.start-btn').innerText = 'The Avalanche'
   }, 1)

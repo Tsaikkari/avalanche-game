@@ -12,8 +12,8 @@ class Snow {
     if (this.dragging) {
       this.x = mouseX
       this.y = mouseY
-    }
-
+    } 
+    //console.log(game.started)
     const snowballs = [game.snow1, game.snow2]
     let result = document.getElementById('timer').innerHTML 
     if (game.started) {
@@ -37,6 +37,13 @@ class Snow {
       circle(this.x, this.y, this.radius)
       fill('#fff')
       stroke('949494')
+
+      // if (this.dragging === false) {
+      //   console.log('drop')
+      // } else {
+      //   console.log('drag')
+      // }
+      
     }
   }
 
@@ -55,5 +62,9 @@ class Snow {
   released() {
     this.dragging = false
     // TODO: snow falls to the gorge: change the loop
+  }
+
+  snowDrop() {
+   
   }
 }
