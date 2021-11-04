@@ -31,9 +31,9 @@ class Snow {
         ) {
           let balls = []
           ball.x === mouseX,
-          ball.y += 100
+          ball.y += 30
+          
           balls.push(ball)
-          console.log('balls1', balls)
           balls.forEach(ball => {
             if (ball === game.snow1) {
               ball.x === 690
@@ -43,11 +43,8 @@ class Snow {
               ball.y === 200
             }
             snowballs.push(ball)
-            console.log(snowballs, 'snowballs inside loop')
-            console.log('ball inside loop', ball)
           })
-          console.log(balls, 'thisisisis')
-          snowballs.concat(balls)
+          console.log(balls, 'balls')
           console.log(snowballs, 'snowballs2')
         } else {
           ball.x -= ball.speedX
