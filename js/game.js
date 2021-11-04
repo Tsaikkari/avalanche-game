@@ -22,6 +22,7 @@ class Game {
         { src: loadImage('images/cottage-phase4.png'), x: 0, y: 400, width: 157, height: 74 },
         { src: loadImage('images/cottage-phase5.png'), x: 0, y: 400, width: 157, height: 74 },
       ]),
+      //(this.music = loadSound("sounds/")),
       setTimeout(function() {
         document.querySelector('.start-btn').innerText = 'START'
       }, 2000)
