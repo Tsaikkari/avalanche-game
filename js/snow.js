@@ -6,6 +6,7 @@ class Snow {
     this.speedX = 2
     this.speedY = 1
     this.dragging = false
+    this.snowballArr = []
   }
 
   draw() {
@@ -15,9 +16,16 @@ class Snow {
     }
 
     let dragState = this.dragging
-    const snowballs = [game.snow1, game.snow2]
     let result = document.getElementById('timer').innerHTML
+
     if (game.started) {
+    this.snowballArr.forEach((ball) => {
+      ball.draw()
+      circle(ball.x, ball.y, ball.radius)
+      fill('#fff')
+      stroke('#464e51')
+    })
+    
       snowballs.forEach(function (ball) {
         if (
           mouseX >= 550 &&
@@ -66,11 +74,49 @@ class Snow {
     }
   }
 
-  clicked() {
+  catched(gorgeInfo) {
+    // let snowX = 
+    // let snowY =
+
+    let gorgeX = gorgeInfo.x + gorgeInfo.width / 2
+    let gorgeY = gorgeInfo.y + gorgeInfo.height / 2
+
     if (dist(mouseX, mouseY, this.x, this.y) < this.radius) {
       this.dragging = true
     }
+
+    if (dist(
+        snowX,
+        snowY,
+        167,
+        game.cottage.y
+      ) < 50 && game.snow1
+    ) {
+      
+      ++game.hitcount
+    } else if (dist(
+      ball.x,
+      ball.y,
+      167,
+      game.cottage.y
+    ) < 50 && ball === game.snow2) {
+      ball.x = 440
+      ball.y = 200
+      ++game.hitcount
+    } else if (game.hitcount === 5 || result === 'You Won!!!!') {
+      noLoop()
+      reset()
+      loop()
+    } 
   }
+
+  // collision() {
+  //   let snowX = 
+  //   let snowY =
+
+  //   let cottageX = 
+  //   let cottageY =
+  // }
 
   startOverClick() {
     if (!game.started) {
