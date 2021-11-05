@@ -18,6 +18,7 @@
       <div class="game-col">
         <h3>You have a cottage in the Alps. 👌</h3>
         <p class="description">Catch the snow and drop it in between the highest mountains. Save your cottage!</p>
+        <img class="left-col-img">
         <!-- <ol>
           <li>Move your mouse and click to grab the snow.</li><br>
           <li>Drag and drop it between the highest mountains.</li>
@@ -33,8 +34,8 @@
         <p>Snow removed: <span class="snow-removed">0</span></p>
         <article class="timer">
           <h3>Timer</h3>
-            <input type="range" name="secondsInputName" id="secondsInputId" value="10" min="1" max="60" oninput="secondsOutputId.value = secondsInputId.value">
-            <output name="secondsOutputName" id="secondsOutputId">10s.</output>
+            <input type="range" class="slider" name="secondsInputName" id="secondsInputId" value="8" min="1" max="60" oninput="secondsOutputId.value = secondsInputId.value">
+            <output name="secondsOutputName" id="secondsOutputId">8s.</output>
           <div class="count">
             <div id="timer"></div>
           </div>

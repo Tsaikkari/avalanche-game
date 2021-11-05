@@ -24,9 +24,20 @@ class Snow {
           dragState === false &&
           dist(mouseX, mouseY, ball.x, ball.y) < ball.radius
         ) {
-          ball.x === mouseX
-          ball.y += 50
-          console.log('drop')
+          let balls = []
+          ball.x = mouseX 
+          ball.y += 40
+          balls.concat(ball)
+          balls.forEach(ball => {
+            if (ball === game.snow1) {
+              ball.x = 690
+              ball.y = 150
+            } else {
+              ball.x = 440
+              ball.y = 200
+            }
+            snowballs = [...snowballs, balls]
+          })
         } else {
           ball.x -= ball.speedX
           ball.y += ball.speedY
@@ -45,12 +56,13 @@ class Snow {
             noLoop()
             reset()
             loop()
-          }
+          } 
         }
       })
       circle(this.x, this.y, this.radius)
       fill('#fff')
-      stroke('949494')
+      stroke('#b5d3e7')
+      strokeWeight(4)
     }
   }
 
