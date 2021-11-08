@@ -8,6 +8,7 @@ class Game {
     this.player = new Player()
     this.gorge = new Gorge()
     this.started = false;
+    this.dragging = false
     this.hitcount = 0;
   }
 
@@ -35,7 +36,6 @@ class Game {
     this.snow1.draw()
     this.snow2.draw()
     this.player.draw()
-    this.gorge.draw()
   }
 
   // TODO

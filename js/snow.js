@@ -6,7 +6,6 @@ class Snow {
     this.speedX = 2
     this.speedY = 1
     this.dragging = false
-    this.snowballArr = []
   }
 
   draw() {
@@ -16,39 +15,58 @@ class Snow {
     }
 
     let dragState = this.dragging
+    let snowballs = [game.snow1, game.snow2]
     let result = document.getElementById('timer').innerHTML
 
     if (game.started) {
-    this.snowballArr.forEach((ball) => {
-      ball.draw()
-      circle(ball.x, ball.y, ball.radius)
-      fill('#fff')
-      stroke('#464e51')
-    })
-    
-      snowballs.forEach(function (ball) {
+      snowballs.forEach(function (ball, index) {
         if (
           mouseX >= 550 &&
-          dragState === false &&
           dist(mouseX, mouseY, ball.x, ball.y) < ball.radius
         ) {
-          let balls = []
-          ball.x = mouseX 
+          console.log('dragging', dragState)
+          ball.x = ball.x
           ball.y += 40
-          balls.concat(ball)
-          balls.forEach(ball => {
-            if (ball === game.snow1) {
-              ball.x = 690
-              ball.y = 150
-            } else {
-              ball.x = 440
-              ball.y = 200
-            }
-            snowballs = [...snowballs, balls]
+
+          snowballs = snowballs.filter((ball, index, arr) => {
+            arr[index] !== ball
           })
+          //console.log(snowballs, 'snowballs1')
+          // snowballs = snowballs.filter((ball) => {
+          //   if (this.dropped(game.gorge, ball)) {
+          //     return false
+          //   } else {
+          //     return true
+          //   }
+          // })
         } else {
           ball.x -= ball.speedX
           ball.y += ball.speedY
+
+          // snowballs = snowballs.filter((ball) => {
+          //   console.log('game.cottage :', game.cottage)
+          //   console.log('ball :', ball)
+            // if (
+            //   this.collision(game.cottage, ball) &&
+            //   ball === game.snow1 &&
+            //   game.hitcount < 5
+            // ) {
+            //   ball.x = 690
+            //   ball.y = 150
+            // } else if (
+            //   this.collision(game.cottage, ball) &&
+            //   ball === game.snow2 &&
+            //   game.hitcount < 5
+            // ) {
+            //   ball.x = 440
+            //   ball.y = 150
+            // } else if (game.hitcount === 5 || result === 'You Won!!!!') {
+            //   noLoop()
+            //   reset()
+            //   loop()
+            // }
+          //})
+
           if (ball.x <= game.cottage.width / 2.8 && ball === game.snow1) {
             ball.x = 690
             ball.y = 150
@@ -65,6 +83,14 @@ class Snow {
             reset()
             loop()
           } 
+          if (snowballs.length < 2 && frameCount % 100 === 0) {
+            snowballs.push(game.snow1)
+          } else if (snowballs.length < 2 && frameCount % 150 === 0) {
+            snowballs.push(game.snow2)
+          } else if (snowballs.length > 2) {
+            snowballs.splice(index)
+          }
+          //console.log(snowballs, 'snowballs2')
         }
       })
       circle(this.x, this.y, this.radius)
@@ -74,49 +100,39 @@ class Snow {
     }
   }
 
-  catched(gorgeInfo) {
-    // let snowX = 
-    // let snowY =
-
-    let gorgeX = gorgeInfo.x + gorgeInfo.width / 2
-    let gorgeY = gorgeInfo.y + gorgeInfo.height / 2
-
+  catched() {
     if (dist(mouseX, mouseY, this.x, this.y) < this.radius) {
       this.dragging = true
     }
-
-    if (dist(
-        snowX,
-        snowY,
-        167,
-        game.cottage.y
-      ) < 50 && game.snow1
-    ) {
-      
-      ++game.hitcount
-    } else if (dist(
-      ball.x,
-      ball.y,
-      167,
-      game.cottage.y
-    ) < 50 && ball === game.snow2) {
-      ball.x = 440
-      ball.y = 200
-      ++game.hitcount
-    } else if (game.hitcount === 5 || result === 'You Won!!!!') {
-      noLoop()
-      reset()
-      loop()
-    } 
   }
 
-  // collision() {
-  //   let snowX = 
-  //   let snowY =
+  dropped(gorgeInfo, ballInfo) {
+    let gorgeX = constrain(mouseX, gorgeInfo.x, gorgeInfo.x + gorgeInfo.width)
+    let gorgeY = constrain(mouseY, gorgeInfo.y, gorgeInfo.height + gorgeInfo.y)
 
-  //   let cottageX = 
-  //   let cottageY =
-  // }
+    if (dist(ballInfo.x, ballInfo.y, gorgeX, gorgeY) < 100) {
+      this.y += 50
+      result++
+      return true
+    } else {
+      return false
+    }
+  }
+
+  collision(cottageInfo, ballInfo) {
+    let snowX = ballInfo.x + ballInfo.width / 2
+    let snowY = ballInfo.y + ballInfo.height / 2
+
+    let cottageX = cottageInfo.x + cottageInfo.width
+    let cottageY = constrain(cottageInfo.y, cottageInfo.x + cottageInfo.height)
+
+    if (dist(snowX, snowY, cottageX, cottageY) < 50) {
+      ++hitcount
+      return true
+    } else {
+      return false
+    }
+  }
 
   startOverClick() {
     if (!game.started) {
@@ -125,9 +141,6 @@ class Snow {
   }
 
   released() {
-    this.dragging = false
-    // TODO: snow falls to the gorge: change the loop
+    game.dragging = false
   }
-
-  snowDrop() {}
 }
