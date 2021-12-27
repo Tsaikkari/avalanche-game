@@ -58,12 +58,7 @@ class Game {
           height: 74,
         },
       ]),
-<<<<<<< HEAD
       setTimeout(function () {
-=======
-      //(this.music = loadSound("sounds/")),
-      setTimeout(function() {
->>>>>>> 7d88e4e8941be48705436ff709e6bebf893cb676
         document.querySelector('.start-btn').innerText = 'START'
       }, 2000)
   }

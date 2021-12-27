@@ -18,7 +18,6 @@ class Snow {
     const snowballs = [game.snow1, game.snow2]
     if (game.started) {
       snowballs.forEach(function (ball) {
-<<<<<<< HEAD
         ball.x -= ball.speedX
         ball.y += ball.speedY
         if (ball.x <= game.cottage.width / 2.8 && ball === game.snow1) {
@@ -33,46 +32,6 @@ class Snow {
           noLoop()
           reset()
           loop()
-=======
-        if (
-          mouseX >= 550 &&
-          dragState === false &&
-          dist(mouseX, mouseY, ball.x, ball.y) < ball.radius
-        ) {
-          let balls = []
-          ball.x = mouseX 
-          ball.y += 40
-          balls.concat(ball)
-          balls.forEach(ball => {
-            if (ball === game.snow1) {
-              ball.x = 690
-              ball.y = 150
-            } else {
-              ball.x = 440
-              ball.y = 200
-            }
-            snowballs = [...snowballs, balls]
-          })
-        } else {
-          ball.x -= ball.speedX
-          ball.y += ball.speedY
-          if (ball.x <= game.cottage.width / 2.8 && ball === game.snow1) {
-            ball.x = 690
-            ball.y = 150
-            ++game.hitcount
-          } else if (
-            ball.x <= game.cottage.width / 2.8 &&
-            ball === game.snow2
-          ) {
-            ball.x = 440
-            ball.y = 200
-            ++game.hitcount
-          } else if (game.hitcount === 5 || result === 'You Won!!!!') {
-            noLoop()
-            reset()
-            loop()
-          } 
->>>>>>> 7d88e4e8941be48705436ff709e6bebf893cb676
         }
       })
       circle(this.x, this.y, this.radius)
